@@ -47,6 +47,8 @@ Statuts possibles : À faire, En cours, Terminée, Bloquée (en attente de l'éq
 | Envoi au bras | Exprimer la position dans le repère du bras et la transmettre. | Le bras reçoit une position utilisable. | `src/bouche_3d/repere_bras.py` | À faire |
 | Assemblage et tests | Relier les quatre autres tâches, mesurer la qualité et faire tourner l'ensemble sur le Jetson. | Module de bout en bout ; erreur, latence et taux de suivi perdu notés dans `mesures.md`. | `src/bouche_3d/assemblage.py` | À faire |
 
+`src/bouche_3d/camera.py` n'est pas une tâche : il fournit les images et la profondeur à la détection et à la position 3D.
+
 À traiter plus tard, hors urgence : calibration fine, conditions d'éclairage, bouche masquée par la cuillère, optimisation de la vitesse.
 
 ## 6. Questions ouvertes

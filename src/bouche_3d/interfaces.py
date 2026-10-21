@@ -8,6 +8,8 @@ Rôle
 Règles communes
     Les distances sont en mètres et les temps en secondes.
     Pour un pixel, u est la colonne et v est la ligne.
+    Les images sont au format BGR d'OpenCV. Le nuage de points est un tableau
+    (hauteur, largeur, 3) en mètres ; les mesures ratées valent NaN ou inf.
 
 Les quatre interfaces
     détection → position 3D : observation de la bouche
