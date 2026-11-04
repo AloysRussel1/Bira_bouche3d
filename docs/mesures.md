@@ -52,3 +52,19 @@ Sur une séquence où un visage est présent du début à la fin, compter la par
 ## 5. Objectifs à atteindre
 
 À définir avec l'équipe : erreur maximale tolérée, latence maximale, part de suivi perdu tolérée. Valeurs à confirmer (voir « Critères d'acceptation » dans `mandat.md`).
+
+## 6. Position 3D : vérification à la règle
+
+But : vérifier que la distance Z donnée par la tâche « position 3D » correspond à la distance réelle.
+
+Méthode :
+1. Placer la ZED Mini sur un support fixe. Mesurer à la règle la distance entre l'avant de la caméra et les lèvres.
+2. Lancer `python scripts/demo_position_3d.py --source zed` (ou `--source svo --fichier ...`).
+3. Placer le visage à 30, 40, 50 et 60 cm.
+4. À chaque distance, faire 5 clics sur les lèvres (pas à l'intérieur de la bouche) et noter Z à chaque clic.
+5. Calculer la moyenne des 5 Z, l'écart avec la règle, et la part de clics « INVALIDE ».
+6. Noter les réglages utilisés (rayon, mode de profondeur) dans « Remarques ». Appuyer sur `s` pour garder une trame par distance dans `data/`.
+
+| Date | Source | Distance règle (mm) | Z mesuré moyen (mm) | Écart (mm) | Invalides (%) | Remarques |
+|---|---|---|---|---|---|---|
+| | | | | | | |

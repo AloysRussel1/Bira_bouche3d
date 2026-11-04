@@ -28,6 +28,26 @@
 
 ## Entrées
 
+### 2026-11-04 : position 3D, sources d'images et démonstration
+- **Auteur :** membre 1
+- **Tâche concernée :** position 3D
+- **Objectif de la session :** terminer la tâche « position 3D » et pouvoir la montrer sans matériel.
+- **Ce qui a été fait :** format d'échange proposé dans interfaces.py (ObservationBouche, Position3D) ; position_depuis_pixel dans position_3d.py ; sources d'images dans camera.py (webcam, simulation d'un visage, trames .npz enregistrées, ZED en direct ou .svo) avec creer_source et enregistrer_trame ; tests de camera.py et tests d'intégration avec la simulation ; démonstration scripts/demo_position_3d.py (clic = position 3D) ; méthode de vérification à la règle dans mesures.md ; section « Essayer la position 3D » dans le README.
+- **Résultats :** 31 tests passent, 1 ignoré (test de la ZED, pyzed absent) avec pytest -v. En simulation (visage à 0,55 m), Z trouvé sur la bouche trouée à 30 % et sur le front à moins de 5 mm de la vraie valeur ; bouche trouée à 80 % et fond à 1,2 m : « invalide ». La démo se lance en simulation et en npy sans erreur.
+- **Ce qui n'a pas pu être testé :** SourceZed (ZED en direct et fichier .svo) : PC sans carte NVIDIA, ZED SDK non installé. La webcam n'a pas été ouverte pendant les tests automatiques.
+- **Décisions prises :** D13 (format d'échange proposé, à valider).
+- **Prochaine étape :** valider D13 avec la binôme et l'équipe ; tester avec la ZED sur un PC NVIDIA et remplir la section 6 de docs/mesures.md.
+
+### 2026-10-21 : calcul de la position 3D
+- **Auteur :** membre 1
+- **Tâche concernée :** position 3D
+- **Objectif de la session :** écrire et tester le calcul de la position de la bouche, sans matériel.
+- **Ce qui a été fait :** fonction position_bouche (fenêtre autour du pixel, points valides, médiane, contrôle de Z) ; tests avec des nuages inventés (cas normal, point aberrant, NaN, bord, distance hors plage, pixel hors image, seuil de points valides, type du résultat) ; pytest ajouté ; branche position-3d ; .gitattributes pour les fins de ligne.
+- **Résultats :** 12 tests sur 12 passent (pytest -v), tous dans tests/test_position_3d.py.
+- **Ce qui n'a pas marché :** PC sans carte NVIDIA (Intel UHD 620) : le ZED SDK ne peut pas y tourner. Alternative envisagée : ZED en simple webcam + profondeur calculée avec OpenCV, pour développer seulement.
+- **Décisions prises :** D11 (camera.py séparé), D12 (réglages provisoires du calcul).
+- **Prochaine étape :** valider la répartition avec la binôme (selon qui a une carte NVIDIA) ; obtenir la ZED et son numéro de série ; essayer la ZED comme webcam.
+
 ### 2026-10-14 : réorganisation et préparation avant Git
 - **Auteur :** membre 1
 - **Tâche concernée :** général
